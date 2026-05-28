@@ -16,13 +16,15 @@
   try {
     if (typeof Lenis !== "undefined" && !prefersReducedMotion && !isMobile) {
       lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), touchMultiplier: 1.5 });
-      function lenisRaf(time) { lenis.raf(time); requestAnimationFrame(lenisRaf); }
-      requestAnimationFrame(lenisRaf);
 
       if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
         lenis.on("scroll", ScrollTrigger.update);
         gsap.ticker.add((time) => { lenis.raf(time * 1000); });
         gsap.ticker.lagSmoothing(0);
+      } else {
+        function lenisRaf(time) { lenis.raf(time); requestAnimationFrame(lenisRaf); }
+        requestAnimationFrame(lenisRaf);
       }
     }
   } catch (e) { /* Lenis unavailable, fallback to native scroll */ }
@@ -308,6 +310,22 @@
   }
 
   /* ===== GSAP SCROLL ANIMATIONS ===== */
+  function revealOnScroll(selector, fromVars, triggerEl, staggerAmt) {
+    const elements = gsap.utils.toArray(selector);
+    if (!elements.length) return;
+    gsap.set(elements, fromVars);
+    ScrollTrigger.create({
+      trigger: triggerEl || elements[0],
+      start: "top 88%",
+      once: true,
+      onEnter: () => {
+        const toVars = { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.7, ease: "power3.out", overwrite: true };
+        if (staggerAmt) toVars.stagger = staggerAmt;
+        gsap.to(elements, toVars);
+      },
+    });
+  }
+
   function initScrollAnimations() {
     if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
     gsap.registerPlugin(ScrollTrigger);
@@ -326,66 +344,64 @@
     gsap.utils.toArray(".section-header").forEach((header) => {
       const tag = header.querySelector(".section-tag");
       const title = header.querySelector(".section-title");
-      const tl = gsap.timeline({
-        scrollTrigger: { trigger: header, start: "top 85%", toggleActions: "play none none none" },
+      if (tag) gsap.set(tag, { opacity: 0, y: 30 });
+      if (title) gsap.set(title, { opacity: 0, y: 50 });
+      ScrollTrigger.create({
+        trigger: header,
+        start: "top 88%",
+        once: true,
+        onEnter: () => {
+          if (tag) gsap.to(tag, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" });
+          if (title) gsap.to(title, { opacity: 1, y: 0, duration: 0.8, delay: 0.15, ease: "power3.out" });
+        },
       });
-      if (tag) tl.from(tag, { y: 30, opacity: 0, duration: 0.6, ease: "power3.out" }, 0);
-      if (title) tl.from(title, { y: 50, opacity: 0, duration: 0.8, ease: "power3.out" }, 0.15);
     });
 
     /* About section */
-    gsap.from(".about-img-wrapper", {
-      scrollTrigger: { trigger: "#about", start: "top 75%" },
-      x: -80, opacity: 0, duration: 1, ease: "power3.out",
-    });
-    gsap.from(".about-content", {
-      scrollTrigger: { trigger: "#about", start: "top 70%" },
-      x: 80, opacity: 0, duration: 1, delay: 0.2, ease: "power3.out",
-    });
-    gsap.from(".stat-item", {
-      scrollTrigger: { trigger: ".about-stats", start: "top 85%" },
-      y: 40, opacity: 0, stagger: 0.15, duration: 0.6, ease: "power3.out",
-    });
+    revealOnScroll(".about-img-wrapper", { opacity: 0, x: -80 }, "#about");
+    revealOnScroll(".about-content", { opacity: 0, x: 80 }, "#about");
+    revealOnScroll(".stat-item", { opacity: 0, y: 40 }, ".about-stats", 0.15);
 
     /* Skill cards */
-    gsap.from(".skill-card", {
-      scrollTrigger: { trigger: ".skills-grid", start: "top 85%" },
-      y: 60, opacity: 0, scale: 0.9, stagger: { amount: 0.8, grid: "auto", from: "start" }, duration: 0.6, ease: "back.out(1.2)",
-    });
+    const skillCards = gsap.utils.toArray(".skill-card");
+    if (skillCards.length) {
+      gsap.set(skillCards, { opacity: 0, y: 60, scale: 0.9 });
+      ScrollTrigger.create({
+        trigger: ".skills-grid",
+        start: "top 88%",
+        once: true,
+        onEnter: () => {
+          gsap.to(skillCards, { opacity: 1, y: 0, scale: 1, stagger: 0.07, duration: 0.6, ease: "back.out(1.2)", overwrite: true });
+        },
+      });
+    }
 
     /* Parallax divider */
-    gsap.from(".parallax-content", {
-      scrollTrigger: { trigger: ".parallax-divider", start: "top 80%" },
-      y: 40, opacity: 0, scale: 0.95, duration: 0.8, ease: "power3.out",
-    });
+    revealOnScroll(".parallax-content", { opacity: 0, y: 40, scale: 0.95 }, ".parallax-divider");
 
     /* Portfolio items */
-    gsap.from(".portfolio-item", {
-      scrollTrigger: { trigger: ".portfolio-container", start: "top 85%" },
-      y: 60, opacity: 0, stagger: { amount: 0.6 }, duration: 0.6, ease: "power3.out",
-    });
+    const portfolioItems = gsap.utils.toArray(".portfolio-item");
+    if (portfolioItems.length) {
+      gsap.set(portfolioItems, { opacity: 0, y: 60 });
+      ScrollTrigger.create({
+        trigger: ".portfolio-container",
+        start: "top 88%",
+        once: true,
+        onEnter: () => {
+          gsap.to(portfolioItems, { opacity: 1, y: 0, stagger: 0.05, duration: 0.6, ease: "power3.out", overwrite: true });
+        },
+      });
+    }
 
     /* Education cards */
-    gsap.from(".education-card", {
-      scrollTrigger: { trigger: ".education-grid", start: "top 85%" },
-      y: 50, opacity: 0, stagger: 0.15, duration: 0.7, ease: "power3.out",
-    });
+    revealOnScroll(".education-card", { opacity: 0, y: 50 }, ".education-grid", 0.15);
 
     /* Contact */
-    gsap.from(".contact-info-card", {
-      scrollTrigger: { trigger: ".contact-wrapper", start: "top 80%" },
-      x: -60, opacity: 0, duration: 0.8, ease: "power3.out",
-    });
-    gsap.from(".contact-form-card", {
-      scrollTrigger: { trigger: ".contact-wrapper", start: "top 80%" },
-      x: 60, opacity: 0, duration: 0.8, delay: 0.2, ease: "power3.out",
-    });
+    revealOnScroll(".contact-info-card", { opacity: 0, x: -60 }, ".contact-wrapper");
+    revealOnScroll(".contact-form-card", { opacity: 0, x: 60 }, ".contact-wrapper");
 
     /* CTA */
-    gsap.from(".cta-content", {
-      scrollTrigger: { trigger: ".cta-section", start: "top 80%" },
-      y: 60, opacity: 0, scale: 0.95, duration: 0.8, ease: "power3.out",
-    });
+    revealOnScroll(".cta-content", { opacity: 0, y: 60, scale: 0.95 }, ".cta-section");
 
     /* Parallax scroll on backgrounds */
     if (!isMobile) {
@@ -404,18 +420,25 @@
       const target = parseInt(counter.getAttribute("data-count"), 10);
       const suffix = counter.getAttribute("data-suffix") || "";
       const obj = { val: 0 };
-      gsap.to(obj, {
-        val: target,
-        duration: 2,
-        ease: "power1.out",
-        scrollTrigger: { trigger: counter, start: "top 85%" },
-        onUpdate: () => { counter.textContent = Math.round(obj.val) + suffix; },
+      ScrollTrigger.create({
+        trigger: counter,
+        start: "top 88%",
+        once: true,
+        onEnter: () => {
+          gsap.to(obj, {
+            val: target, duration: 2, ease: "power1.out",
+            onUpdate: () => { counter.textContent = Math.round(obj.val) + suffix; },
+          });
+        },
       });
     });
+
+    ScrollTrigger.refresh();
   }
 
   window.addEventListener("load", () => {
     initScrollAnimations();
+    setTimeout(() => { if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh(); }, 500);
   });
 
   /* ===== MAGNETIC BUTTONS ===== */
