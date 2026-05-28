@@ -144,7 +144,7 @@
       "form.email": "E-posta Adresiniz",
       "form.subject": "Konu",
       "form.message": "Mesaj\u0131n\u0131z",
-      "typed": "Yaz\u0131l\u0131m M\u00fchendisi, Yapay Zeka Tutkunu, Problem \u00c7\u00f6z\u00fcc\u00fc, Java Geli\u015ftirici"
+      "typed": "Yaz\u0131l\u0131m M\u00fchendisi, Yapay Zeka E\u011fitimcisi, Problem \u00c7\u00f6z\u00fcc\u00fc, Java Geli\u015ftirici"
     }
   };
 
@@ -173,8 +173,11 @@
       if (t[key] !== undefined) el.setAttribute("placeholder", t[key]);
     });
 
-    var langLabel = document.getElementById("lang-label");
-    if (langLabel) langLabel.textContent = lang === "en" ? "TR" : "EN";
+    document.querySelectorAll(".lang-opt").forEach(function (el) {
+      var opt = el.getAttribute("data-lang-opt");
+      if (opt === lang) el.classList.add("active");
+      else el.classList.remove("active");
+    });
 
     if (t["typed"]) {
       var typedEl = select(".typed");
@@ -213,8 +216,8 @@
   }
 
   window.addEventListener("load", function () {
-    var savedLang = localStorage.getItem("lang");
-    if (savedLang && savedLang !== "en") applyLanguage(savedLang);
+    var savedLang = localStorage.getItem("lang") || "en";
+    applyLanguage(savedLang);
     initLanguageToggle();
   });
 
