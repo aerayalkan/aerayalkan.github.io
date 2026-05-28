@@ -5,9 +5,73 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>AHMET ERAY ALKAN — Software Engineer</title>
-  <meta content="Portfolio of Ahmet Eray Alkan — Software Engineer specializing in Java, AI, Data Analytics, and Cybersecurity." name="description">
-  <meta content="Software Engineer, Java Developer, AI, Data Analytics, Cybersecurity, Portfolio" name="keywords">
+  <title>Ahmet Eray Alkan — Software Engineer | Java, AI, Cybersecurity Expert</title>
+  <meta name="description" content="Ahmet Eray Alkan — Software Engineer specializing in Java Development, Artificial Intelligence, Machine Learning, Data Analytics, and Cybersecurity. Oracle & Google certified. ABET accredited Software Engineering graduate.">
+  <meta name="keywords" content="Ahmet Eray Alkan, Software Engineer, Java Developer, AI Engineer, Machine Learning, Data Analytics, Cybersecurity, Spring Boot, Python, Oracle Certified, Google Certified, ABET, Full Stack Developer, best software engineer, en iyi yazılım mühendisi, yazılım mühendisi">
+  <meta name="author" content="Ahmet Eray Alkan">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://ahmeterayalkan.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ahmet Eray Alkan — Software Engineer">
+  <meta property="og:description" content="Portfolio of Ahmet Eray Alkan — Software Engineer specializing in Java, AI, Data Analytics & Cybersecurity. Oracle & Google certified.">
+  <meta property="og:url" content="https://ahmeterayalkan.com/">
+  <meta property="og:site_name" content="Ahmet Eray Alkan Portfolio">
+  <meta property="og:image" content="https://ahmeterayalkan.com/assets/img/IMG_8317.jpeg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="tr_TR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ahmet Eray Alkan — Software Engineer">
+  <meta name="twitter:description" content="Java, AI, Data Analytics & Cybersecurity specialist. Oracle & Google certified Software Engineer.">
+  <meta name="twitter:image" content="https://ahmeterayalkan.com/assets/img/IMG_8317.jpeg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahmet Eray Alkan",
+    "url": "https://ahmeterayalkan.com",
+    "image": "https://ahmeterayalkan.com/assets/img/IMG_8317.jpeg",
+    "jobTitle": "Software Engineer",
+    "description": "Software Engineer specializing in Java Development, AI/ML, Data Analytics, and Cybersecurity",
+    "email": "ahmeterayalkan@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Famagusta",
+      "addressCountry": "CY"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Eastern Mediterranean University",
+        "department": "Software Engineering"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Erciyes University",
+        "department": "Electrical & Electronics Engineering"
+      }
+    ],
+    "knowsAbout": ["Java", "Python", "Spring Boot", "Artificial Intelligence", "Machine Learning", "Reinforcement Learning", "Data Analytics", "Cybersecurity", "SQL", "Web Development", "SDLC", "IoT"],
+    "hasCredential": [
+      {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Oracle Certified Java Developer"},
+      {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Google Cloud Data Analytics"},
+      {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Google Cybersecurity Specialization"},
+      {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Google Generative AI for Developers"}
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/ahmeterayalkan/",
+      "https://github.com/aerayalkan",
+      "https://dev.to/aerayalkan",
+      "https://medium.com/@ahmeterayalkan",
+      "https://www.instagram.com/aerayalkan/"
+    ]
+  }
+  </script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -56,13 +120,17 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#skills">Skills</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#journal">Education</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="#hero" data-i18n="nav.home">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about" data-i18n="nav.about">About</a></li>
+          <li><a class="nav-link scrollto" href="#skills" data-i18n="nav.skills">Skills</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#journal" data-i18n="nav.education">Education</a></li>
+          <li><a class="nav-link scrollto" href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
+        <div class="lang-toggle" id="lang-toggle" title="Türkçe / English">
+          <i class="bi bi-translate"></i>
+          <span id="lang-label">TR</span>
+        </div>
         <div class="mobile-nav-toggle">
           <span></span>
           <span></span>
@@ -81,7 +149,7 @@
 
     <div class="hero-container container">
       <div class="hero-content">
-        <p class="hero-greeting">Hello, I'm</p>
+        <p class="hero-greeting" data-i18n="hero.greeting">Hello, I'm</p>
         <h1 class="hero-name">
           <span class="hero-name-line">AHMET ERAY</span>
           <span class="hero-name-line accent">ALKAN</span>
@@ -100,7 +168,7 @@
     </div>
 
     <div class="scroll-indicator">
-      <span>Scroll</span>
+      <span data-i18n="hero.scroll">Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </div>
@@ -112,8 +180,8 @@
       <div class="container">
 
         <div class="section-header">
-          <span class="section-tag">About Me</span>
-          <h2 class="section-title">Crafting Code,<br>Building <span class="accent">Solutions</span></h2>
+          <span class="section-tag" data-i18n="about.tag">About Me</span>
+          <h2 class="section-title" data-i18n-html="about.title">Crafting Code,<br>Building <span class="accent">Solutions</span></h2>
         </div>
 
         <div class="about-grid">
@@ -123,30 +191,30 @@
               <div class="tilt-glow"></div>
               <img src="assets/img/IMG_8317.jpeg" alt="Ahmet Eray Alkan">
             </div>
-            <span class="about-badge">Software Engineer</span>
+            <span class="about-badge" data-i18n="about.badge">Software Engineer</span>
           </div>
 
           <div class="about-content">
             <div class="about-text">
-              <p class="lead">"Passionate about transforming complex problems into elegant, efficient software solutions."</p>
-              <p>Hello! I'm Ahmet Eray Alkan, a Software Engineer with a strong background in Java Development, AI Training, and Data Analytics. I bring a unique blend of engineering knowledge and software expertise to every project I work on.</p>
-              <p>I gained valuable hands-on experience as a Software Engineering Intern at <strong>JForce</strong>, where I worked on various enterprise projects and enhanced my technical skills in Spring Boot, SQL, and full-stack development.</p>
-              <p>I hold esteemed certifications including <strong>Oracle Java Development</strong>, <strong>Google Cloud Data Analytics</strong>, <strong>Google Cybersecurity Specialization</strong>, and <strong>Google Generative AI for Developers</strong>. My graduate project focused on <strong>Fraud Detection with AI Training</strong>, leveraging advanced machine learning techniques to identify and prevent fraudulent activities.</p>
-              <p>Originally starting my academic journey in Electrical and Electronics Engineering, my passion for software led me to transition into Software Engineering — allowing me to leverage technical knowledge across a broader spectrum and gain deep understanding of the Software Development Life Cycle.</p>
+              <p class="lead" data-i18n="about.lead">"Passionate about transforming complex problems into elegant, efficient software solutions."</p>
+              <p data-i18n-html="about.p1">Hello! I'm Ahmet Eray Alkan, a Software Engineer with a strong background in Java Development, AI Training, and Data Analytics. I bring a unique blend of engineering knowledge and software expertise to every project I work on.</p>
+              <p data-i18n-html="about.p2">I gained valuable hands-on experience as a Software Engineering Intern at <strong>JForce</strong>, where I worked on various enterprise projects and enhanced my technical skills in Spring Boot, SQL, and full-stack development.</p>
+              <p data-i18n-html="about.p3">I hold esteemed certifications including <strong>Oracle Java Development</strong>, <strong>Google Cloud Data Analytics</strong>, <strong>Google Cybersecurity Specialization</strong>, and <strong>Google Generative AI for Developers</strong>. My graduate project focused on <strong>Fraud Detection with AI Training</strong>, leveraging advanced machine learning techniques to identify and prevent fraudulent activities.</p>
+              <p data-i18n-html="about.p4">Originally starting my academic journey in Electrical and Electronics Engineering, my passion for software led me to transition into Software Engineering — allowing me to leverage technical knowledge across a broader spectrum and gain deep understanding of the Software Development Life Cycle.</p>
             </div>
 
             <div class="about-stats">
               <div class="stat-item">
                 <span class="stat-number" data-count="3" data-suffix="+">0</span>
-                <span class="stat-label">Years Experience</span>
+                <span class="stat-label" data-i18n="about.stat1">Years Experience</span>
               </div>
               <div class="stat-item">
                 <span class="stat-number" data-count="15" data-suffix="+">0</span>
-                <span class="stat-label">Projects</span>
+                <span class="stat-label" data-i18n="about.stat2">Projects</span>
               </div>
               <div class="stat-item">
                 <span class="stat-number" data-count="10" data-suffix="+">0</span>
-                <span class="stat-label">Certifications</span>
+                <span class="stat-label" data-i18n="about.stat3">Certifications</span>
               </div>
             </div>
           </div>
@@ -160,8 +228,8 @@
       <div class="container">
 
         <div class="section-header">
-          <span class="section-tag">Expertise</span>
-          <h2 class="section-title">Skills & <span class="accent">Technologies</span></h2>
+          <span class="section-tag" data-i18n="skills.tag">Expertise</span>
+          <h2 class="section-title" data-i18n-html="skills.title">Skills & <span class="accent">Technologies</span></h2>
         </div>
 
         <div class="skills-grid">
@@ -170,84 +238,84 @@
             <div class="tilt-glow"></div>
             <i class="bi bi-filetype-java"></i>
             <div class="skill-name">Java</div>
-            <p class="skill-desc">Skilled in Java programming for software development and data processing. Oracle Certified Java Developer.</p>
+            <p class="skill-desc" data-i18n="skill.java">Skilled in Java programming for software development and data processing. Oracle Certified Java Developer.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-filetype-py"></i>
             <div class="skill-name">Python</div>
-            <p class="skill-desc">Experienced in developing software solutions and performing data analysis. Google Cloud Data Analytics certified.</p>
+            <p class="skill-desc" data-i18n="skill.python">Experienced in developing software solutions and performing data analysis. Google Cloud Data Analytics certified.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-window-sidebar"></i>
             <div class="skill-name">Spring Boot</div>
-            <p class="skill-desc">Experienced in building robust and scalable enterprise applications. Applied extensively during internship at JForce.</p>
+            <p class="skill-desc" data-i18n="skill.spring">Experienced in building robust and scalable enterprise applications. Applied extensively during internship at JForce.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-robot"></i>
             <div class="skill-name">AI / ML</div>
-            <p class="skill-desc">Expert in developing AI training pipelines, deep learning frameworks, and model optimization for real-world applications.</p>
+            <p class="skill-desc" data-i18n="skill.ai">Expert in developing AI training pipelines, deep learning frameworks, and model optimization for real-world applications.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-recycle"></i>
             <div class="skill-name">Reinforcement Learning</div>
-            <p class="skill-desc">Experienced in designing RL models for dynamic environments with reward-based training strategies.</p>
+            <p class="skill-desc" data-i18n="skill.rl">Experienced in designing RL models for dynamic environments with reward-based training strategies.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-database"></i>
             <div class="skill-name">SQL & Databases</div>
-            <p class="skill-desc">Proficient with Oracle, MongoDB, PostgreSQL. Skilled in designing, querying, and optimizing relational databases.</p>
+            <p class="skill-desc" data-i18n="skill.sql">Proficient with Oracle, MongoDB, PostgreSQL. Skilled in designing, querying, and optimizing relational databases.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-shield-shaded"></i>
             <div class="skill-name">Cybersecurity</div>
-            <p class="skill-desc">Google Cybersecurity Specialization certified. Skilled in penetration testing, Metasploit, and vulnerability assessment.</p>
+            <p class="skill-desc" data-i18n="skill.cyber">Google Cybersecurity Specialization certified. Skilled in penetration testing, Metasploit, and vulnerability assessment.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-braces"></i>
             <div class="skill-name">C Programming</div>
-            <p class="skill-desc">Strong foundation for embedded systems and performance-critical applications. Experience with Atmel processors and Keil IDE.</p>
+            <p class="skill-desc" data-i18n="skill.c">Strong foundation for embedded systems and performance-critical applications. Experience with Atmel processors and Keil IDE.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-file-bar-graph"></i>
             <div class="skill-name">Data Analytics</div>
-            <p class="skill-desc">Google Cloud Data Analytics certified. Proficient in data processing, visualization, and actionable insights.</p>
+            <p class="skill-desc" data-i18n="skill.data">Google Cloud Data Analytics certified. Proficient in data processing, visualization, and actionable insights.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-globe2"></i>
             <div class="skill-name">Web Development</div>
-            <p class="skill-desc">Full-stack web development with HTML, CSS, JavaScript. Experience building responsive, modern web applications.</p>
+            <p class="skill-desc" data-i18n="skill.web">Full-stack web development with HTML, CSS, JavaScript. Experience building responsive, modern web applications.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-person-lines-fill"></i>
             <div class="skill-name">SDLC</div>
-            <p class="skill-desc">Deep knowledge of Agile, Waterfall, and hybrid SDLC models. Team leadership and project management experience.</p>
+            <p class="skill-desc" data-i18n="skill.sdlc">Deep knowledge of Agile, Waterfall, and hybrid SDLC models. Team leadership and project management experience.</p>
           </div>
 
           <div class="skill-card tilt-card">
             <div class="tilt-glow"></div>
             <i class="bi bi-activity"></i>
             <div class="skill-name">IoT & Arduino</div>
-            <p class="skill-desc">Experienced in prototyping electronic projects using Arduino, RFID, SPI communication, and embedded systems.</p>
+            <p class="skill-desc" data-i18n="skill.iot">Experienced in prototyping electronic projects using Arduino, RFID, SPI communication, and embedded systems.</p>
           </div>
 
         </div>
@@ -259,8 +327,8 @@
       <div class="parallax-bg"></div>
       <div class="parallax-overlay"></div>
       <div class="parallax-content">
-        <p class="parallax-quote">"The only way to do great work is to love what you do."</p>
-        <span class="parallax-author">— Steve Jobs</span>
+        <p class="parallax-quote" data-i18n-html="quote.text">"Thank you to everyone who helped me reach my current excellence."</p>
+        <span class="parallax-author" data-i18n="quote.author">— Ahmet Eray Alkan</span>
       </div>
     </div>
 
@@ -277,17 +345,17 @@
       <div class="container">
 
         <div class="section-header">
-          <span class="section-tag">Portfolio</span>
-          <h2 class="section-title">Featured <span class="accent">Work</span></h2>
+          <span class="section-tag" data-i18n="portfolio.tag">Portfolio</span>
+          <h2 class="section-title" data-i18n-html="portfolio.title">Featured <span class="accent">Work</span></h2>
         </div>
 
         <div class="portfolio-filters-row">
           <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-certificates">Certificates</li>
-            <li data-filter=".filter-projects">Projects</li>
-            <li data-filter=".filter-job">Job</li>
+            <li data-filter="*" class="filter-active" data-i18n="portfolio.all">All</li>
+            <li data-filter=".filter-app" data-i18n="portfolio.app">App</li>
+            <li data-filter=".filter-certificates" data-i18n="portfolio.certificates">Certificates</li>
+            <li data-filter=".filter-projects" data-i18n="portfolio.projects">Projects</li>
+            <li data-filter=".filter-job" data-i18n="portfolio.job">Job</li>
           </ul>
         </div>
 
@@ -586,8 +654,8 @@
       <div class="container">
 
         <div class="section-header">
-          <span class="section-tag">Education</span>
-          <h2 class="section-title">Academic <span class="accent">Journey</span></h2>
+          <span class="section-tag" data-i18n="edu.tag">Education</span>
+          <h2 class="section-title" data-i18n-html="edu.title">Academic <span class="accent">Journey</span></h2>
         </div>
 
         <div class="education-grid">
@@ -599,7 +667,7 @@
             </a>
             <span class="edu-period">2019 — 2023</span>
             <h4><a href="https://www.erciyes.edu.tr/" target="_blank" rel="noopener">Erciyes University<br>Electrical & Electronics Engineering</a></h4>
-            <p>Studied Bachelor's degree — transitioned to Software Engineering to follow passion for software development.</p>
+            <p data-i18n="edu.erciyes.desc">Studied Bachelor's degree — transitioned to Software Engineering to follow passion for software development.</p>
           </div>
 
           <div class="education-card tilt-card">
@@ -608,8 +676,8 @@
               <img src="assets/img/emu.png" alt="Eastern Mediterranean University">
             </a>
             <span class="edu-period">2023 — 2025</span>
-            <h4><a href="https://www.emu.edu.tr/en" target="_blank" rel="noopener">Eastern Mediterranean University<br>Software Engineering</a></h4>
-            <p>Bachelor's degree in Software Engineering (ABET Accredited), Famagusta, Cyprus.</p>
+            <h4><a href="https://www.emu.edu.tr/en" target="_blank" rel="noopener" data-i18n-html="edu.emu.name">Eastern Mediterranean University<br>Software Engineering</a></h4>
+            <p data-i18n="edu.emu.desc">Bachelor's degree in Software Engineering (ABET Accredited), Famagusta, Cyprus.</p>
           </div>
 
           <div class="education-card tilt-card">
@@ -617,9 +685,9 @@
             <a href="https://www.abet.org/" target="_blank" rel="noopener">
               <img src="assets/img/abet.png" alt="ABET Accreditation">
             </a>
-            <span class="edu-period">Accredited</span>
-            <h4><a href="https://www.abet.org/" target="_blank" rel="noopener">ABET Accreditation</a></h4>
-            <p>Software Engineering program accredited by ABET — ensuring world-class education standards.</p>
+            <span class="edu-period" data-i18n="edu.abet.period">Accredited</span>
+            <h4><a href="https://www.abet.org/" target="_blank" rel="noopener" data-i18n="edu.abet.name">ABET Accreditation</a></h4>
+            <p data-i18n="edu.abet.desc">Software Engineering program accredited by ABET — ensuring world-class education standards.</p>
           </div>
 
         </div>
@@ -631,15 +699,15 @@
       <div class="container">
 
         <div class="section-header">
-          <span class="section-tag">Contact</span>
-          <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+          <span class="section-tag" data-i18n="contact.tag">Contact</span>
+          <h2 class="section-title" data-i18n-html="contact.title">Let's <span class="accent">Connect</span></h2>
         </div>
 
         <div class="contact-wrapper">
 
           <div class="contact-info-card">
-            <h3>Get in Touch</h3>
-            <p class="contact-subtitle">Feel free to reach out for collaborations or just a friendly chat.</p>
+            <h3 data-i18n="contact.heading">Get in Touch</h3>
+            <p class="contact-subtitle" data-i18n="contact.subtitle">Feel free to reach out for collaborations or just a friendly chat.</p>
 
             <ul class="contact-details">
               <li><i class="bi bi-geo-alt"></i> <span>Famagusta, Cyprus</span></li>
@@ -665,19 +733,19 @@
 
               <div class="form-row">
                 <div class="form-group">
-                  <input type="text" name="name" id="contact-name" placeholder="Your Name" required>
+                  <input type="text" name="name" id="contact-name" placeholder="Your Name" data-i18n-placeholder="form.name" required>
                 </div>
                 <div class="form-group">
-                  <input type="email" name="email" id="contact-email" placeholder="Your Email" required>
+                  <input type="email" name="email" id="contact-email" placeholder="Your Email" data-i18n-placeholder="form.email" required>
                 </div>
               </div>
 
               <div class="form-group">
-                <input type="text" name="subject_line" id="contact-subject" placeholder="Subject" required>
+                <input type="text" name="subject_line" id="contact-subject" placeholder="Subject" data-i18n-placeholder="form.subject" required>
               </div>
 
               <div class="form-group">
-                <textarea name="message" id="contact-message" placeholder="Your Message" required></textarea>
+                <textarea name="message" id="contact-message" placeholder="Your Message" data-i18n-placeholder="form.message" required></textarea>
               </div>
 
               <div class="loading">Loading</div>
@@ -685,7 +753,7 @@
               <div class="sent-message">Your message has been sent. Thank you!</div>
 
               <button type="submit" class="btn-submit magnetic-btn">
-                <span>Send Message</span>
+                <span data-i18n="contact.send">Send Message</span>
                 <i class="bi bi-arrow-right"></i>
               </button>
 
@@ -702,9 +770,9 @@
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2 class="cta-title">Ready to Build<br>Something <span class="accent">Amazing</span>?</h2>
+        <h2 class="cta-title" data-i18n-html="cta.title">Ready to Build<br>Something <span class="accent">Amazing</span>?</h2>
         <a href="#contact" class="cta-btn magnetic-btn scrollto">
-          <span>Let's Talk</span>
+          <span data-i18n="cta.btn">Let's Talk</span>
           <i class="bi bi-arrow-right"></i>
         </a>
       </div>
@@ -721,7 +789,7 @@
         <a href="https://medium.com/@ahmeterayalkan" target="_blank" rel="noopener"><i class="bi bi-medium"></i></a>
         <a href="https://www.instagram.com/aerayalkan/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
       </div>
-      <p>&copy; 2026 Ahmet Eray Alkan. All rights reserved.</p>
+      <p data-i18n="footer.copy">&copy; 2026 Ahmet Eray Alkan. All rights reserved.</p>
     </div>
   </div>
 
