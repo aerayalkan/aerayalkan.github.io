@@ -11,23 +11,8 @@
     return all ? [...document.querySelectorAll(el)] : document.querySelector(el);
   };
 
-  /* ===== LENIS SMOOTH SCROLL ===== */
+  /* ===== SCROLL SETUP ===== */
   let lenis = null;
-  try {
-    if (typeof Lenis !== "undefined" && !prefersReducedMotion && !isMobile) {
-      lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), touchMultiplier: 1.5 });
-
-      if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-        gsap.registerPlugin(ScrollTrigger);
-        lenis.on("scroll", ScrollTrigger.update);
-        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-        gsap.ticker.lagSmoothing(0);
-      } else {
-        function lenisRaf(time) { lenis.raf(time); requestAnimationFrame(lenisRaf); }
-        requestAnimationFrame(lenisRaf);
-      }
-    }
-  } catch (e) { /* Lenis unavailable, fallback to native scroll */ }
 
   /* ===== PRELOADER ===== */
   window.addEventListener("load", () => {
@@ -205,8 +190,17 @@
     }
 
     const clock = new THREE.Clock();
+    let threeActive = true;
+
+    const heroEl = document.getElementById("hero");
+    const heroObserver = new IntersectionObserver((entries) => {
+      threeActive = entries[0].isIntersecting;
+    }, { threshold: 0 });
+    if (heroEl) heroObserver.observe(heroEl);
+
     function animate() {
       requestAnimationFrame(animate);
+      if (!threeActive) return;
       const elapsed = clock.getElapsedTime();
 
       geometries.forEach((mesh) => {
