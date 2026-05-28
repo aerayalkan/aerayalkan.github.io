@@ -639,4 +639,53 @@
     });
   }
 
+  /* ===== WEB3FORMS CONTACT FORM ===== */
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const loading = this.querySelector(".loading");
+      const errorMsg = this.querySelector(".error-message");
+      const sentMsg = this.querySelector(".sent-message");
+      const submitBtn = this.querySelector(".btn-submit");
+
+      loading.style.display = "block";
+      errorMsg.style.display = "none";
+      sentMsg.style.display = "none";
+      if (submitBtn) submitBtn.disabled = true;
+
+      const formData = new FormData(this);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          loading.style.display = "none";
+          if (data.success) {
+            sentMsg.style.display = "block";
+            contactForm.reset();
+            setTimeout(function () {
+              sentMsg.style.display = "none";
+            }, 5000);
+          } else {
+            errorMsg.textContent =
+              data.message || "Something went wrong. Please try again.";
+            errorMsg.style.display = "block";
+          }
+        })
+        .catch(function () {
+          loading.style.display = "none";
+          errorMsg.textContent =
+            "Connection error. Please try again later.";
+          errorMsg.style.display = "block";
+        })
+        .finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
+    });
+  }
+
 })();
